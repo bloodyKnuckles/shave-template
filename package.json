@@ -1,0 +1,25 @@
+{
+  "name": "shave-template",
+  "version": "0.1.0",
+  "description": "Curly-braces free template module for populating HTML templates with dynamic data and building dynamic lists and tables.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bloodyKnuckles/shave-template.git"
+  },
+  "keywords": [
+    "template",
+    "HTML",
+    "CSS",
+    "selectors"
+  ],
+  "author": "Jay Scott ANDERSON",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bloodyKnuckles/shave-template/issues"
+  },
+  "homepage": "https://github.com/bloodyKnuckles/shave-template#readme"
+}
