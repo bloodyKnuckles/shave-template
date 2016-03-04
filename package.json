@@ -1,7 +1,7 @@
 {
   "name": "shave-template",
   "version": "0.1.0",
-  "description": "Curly-braces free template module for populating HTML templates with dynamic data and building dynamic lists and tables.",
+  "description": "Curly-brackets-free template module for populating HTML templates with dynamic data and building dynamic lists and tables.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

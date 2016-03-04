@@ -10,6 +10,6 @@ You can also use this module to build dynamic lists and tables. The module can b
 portion of the provided template, such as a list item or a table row. It will then use it as a
 sub-template to be duplicated and  populated with dynamic data for each member of an array.
 
-# license
+### license
 
 MIT
