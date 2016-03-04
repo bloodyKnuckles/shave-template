@@ -2,7 +2,7 @@ var vText = require('virtual-dom/vnode/vtext')
 var vTSel = require('vtree-select')
 var vToHTML = require('vdom-to-html')
 var vdom = require('vdom-virtualize')
-var h2VD = require('virtual-html') // replace vdom-virtualize ??
+//var h2VD = require('virtual-html') // replace vdom-virtualize ??
 
 module.exports = function (template, contentvars) {
   vt = vdom.fromHTML(template)
@@ -58,9 +58,7 @@ module.exports = function (template, contentvars) {
               else if ( valprop.prepend ) { cur = valprop.prepend + cur }
             }
             else { cur = valprop }
-            //if ( 'function' !== typeof cur ) {
               targetprops[prop] = cur
-            //}
           }
         })
       }
