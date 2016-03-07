@@ -4,7 +4,8 @@
   "description": "Curly-brackets-free template module for populating HTML templates with dynamic data and building dynamic lists and tables.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -t brfs examples/index.js > examples/public/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/bloodyKnuckles/shave-template/issues"
   },
-  "homepage": "https://github.com/bloodyKnuckles/shave-template#readme"
+  "homepage": "https://github.com/bloodyKnuckles/shave-template#readme",
+  "devDependencies": {
+    "brfs": "^1.4.3",
+    "main-loop": "^3.2.0"
+  },
+  "dependencies": {
+    "vdom-to-html": "^2.2.0",
+    "vdom-virtualize": "^1.0.5",
+    "virtual-dom": "^2.1.1",
+    "vtree-select": "^2.0.0"
+  }
 }

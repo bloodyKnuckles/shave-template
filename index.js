@@ -4,13 +4,33 @@ var vToHTML = require('vdom-to-html')
 var vdom = require('vdom-virtualize')
 //var h2VD = require('virtual-html') // replace vdom-virtualize ??
 
-module.exports = function (template, contentvars) {
-  vt = vdom.fromHTML(template)
+module.exports = function (templates, contentvars) {
+  var vt
+  if ( Array.isArray(templates) ) {
+    if ( 1 < templates.length ) {
+      var start = templates.reverse().shift()
+      vt = templates.reduce(function(prev, next) {
+        var ret = vdom.fromHTML(next)
+        var tar = vTSel('.template')(ret)
+        if ( tar ) {
+          tar[0].children = prev.children
+        }
+        else { console.log('Template selector not found.') }
+        return ret.children[1]
+      }, vdom.fromHTML(start).children[1]) // vdom.fromHTML wraps it in HTML/HEAD/BODY tags
+      vt = vdom.fromHTML(vToHTML(vt)).children[1] // fixes glitch adding children (prev)
+      vt.tagName = 'DIV' // change BODY tag (grabbed in children[1]) to DIV 
+    }
+    else { vt = vdom.fromHTML(templates[0]) }
+  }
+  else {
+    vt = vdom.fromHTML(templates)
+  }
   Object.keys(contentvars).forEach(function (sel) {
     var value = contentvars[sel]
-    var target = vTSel(sel)(vt)[0]
-
+    var target = vTSel(sel)(vt)
     if ( target ) {
+      target = target[0]
       if ( 'string' === typeof value || 'number' === typeof value ) {
         target.children = [new vText(value)]
       }
@@ -29,7 +49,7 @@ module.exports = function (template, contentvars) {
           }
           else if (/^_map/.test(prop) && 'object' === typeof valprop && null !== valprop ) {
             Object.keys(valprop).forEach(function (mapkey) {
-              var subtmpl = vdom.fromHTML(vToHTML(vTSel(mapkey)(target)[0])).children[1].children[0]
+              var subtmpl = vdom.fromHTML(vToHTML(vTSel(mapkey)(target)[0])).children[1].children[0] // how else to clone?
               if ( '_map' === prop ) { target.children = [] }
               valprop[mapkey].forEach(function (cvars) {
                 var mapd
@@ -66,6 +86,7 @@ module.exports = function (template, contentvars) {
         target.children[0].text = value(target.children[0].text)
       }
     } // end if target
+    else { console.log('Selector not found.') }
   })
   return vt
 }
