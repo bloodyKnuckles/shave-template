@@ -40,7 +40,7 @@ var loop = main({ n: 0 }, render, require('virtual-dom'))
 document.querySelector('#content').appendChild(loop.target)
 
 function render (state) {
-  return shaved(template, {
+  return shaved(button, {
     '#count': state.n,
     'button': {onclick: onclick}
   })
@@ -70,6 +70,22 @@ index.html
 ```
 
 Execute `npm run build` or `browserify -t brfs examples/index.js > examples/public/bundle.js` to compile the example code, then load the index.html file in a browser.
+
+### layering templates and map example
+
+```
+var outer = fs.readFileSync('public/outer.html', 'utf-8')
+var section = fs.readFileSync('public/section.html', 'utf-8')
+var template = fs.readFileSync('public/template.html', 'utf-8')
+
+shaved([outer, section, template], {
+  '#sectionheader': 'Start Here:',
+  'div#message': {class: 'myclass', '_html': 'Clicker ready.'},
+  '#datetime': 'today ' + state.n,
+  '#mapme': {_map: {'li': ['one', 'two', 'three', 'four']}},
+  'button': {onclick: onclick, '_html': 'click here'}
+})
+```
 
 ### license
 
