@@ -15,7 +15,7 @@ function render (state) {
 /*
   return shaved(template, {
     'div#message': {class: 'testing132', '_html': 'yup'},
-    '#datetime': 'today ' + state.n + ' hey',
+    '#clicks': 'Clicks: ' + state.n,
     '#mapme': {_map: {'li': ['one', 'two', 'three', 'four']}},
     'button': {type: 'button', onclick: onclick, '_html': 'click me?'}
   })
