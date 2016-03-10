@@ -2,7 +2,6 @@ var vText = require('virtual-dom/vnode/vtext')
 var vTSel = require('vtree-select')
 var vToHTML = require('vdom-to-html')
 var vdom = require('vdom-virtualize')
-//var h2VD = require('virtual-html') // replace vdom-virtualize ??
 
 module.exports = function (templates, contentvars) {
   var vt
@@ -22,6 +21,9 @@ module.exports = function (templates, contentvars) {
       vt.tagName = 'DIV' // change BODY tag (grabbed in children[1]) to DIV 
     }
     else { vt = vdom.fromHTML(templates[0]) }
+  }
+  else if ( 'object' === typeof templates ) {
+    vt = vdom.fromHTML(vToHTML(templates)) // fixes glitch copying templates
   }
   else {
     vt = vdom.fromHTML(templates)
