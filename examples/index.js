@@ -1,6 +1,7 @@
 var shaved = require('../')
 var fs = require('fs')
 var main = require('main-loop')
+var vdom = require('vdom-virtualize')
 
 //var template = fs.readFileSync('examples/public/template.html', 'utf-8')
 //var simple = fs.readFileSync('examples/public/simplebutton.html', 'utf-8')
@@ -13,7 +14,7 @@ document.querySelector('#content').appendChild(loop.target)
 
 function render (state) {
 /*
-  return shaved(templatevd, {
+  return shaved(template, {
     'div#message': {class: 'testing132', '_html': 'yup'},
     '#clicks': 'Clicks: ' + state.n,
     '#mapme': {_map: {'li': ['one', 'two', 'three', 'four']}},

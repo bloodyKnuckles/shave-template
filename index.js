@@ -93,3 +93,4 @@ module.exports = function (templates, contentvars) {
   })
   return vt
 }
+module.exports.vdom = vdom
