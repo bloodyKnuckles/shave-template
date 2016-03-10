@@ -20,6 +20,8 @@ identifies CSS selectors as key names paired with values, and replaces (or appen
 default content of the elements in the templates that are identified by the corresponding CSS
 selectors with the provided values.
 
+Input templates values may be type string or virtual-dom object.
+
 This module returns a virtual-dom object useful for DOM-diffing.
 
 ### example
