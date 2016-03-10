@@ -5,6 +5,7 @@ var vdom = require('vdom-virtualize')
 
 module.exports = function (templates, contentvars) {
   var vt
+  contentvars = contentvars || {}
   if ( Array.isArray(templates) ) {
     if ( 1 < templates.length ) {
       var start = templates.reverse().shift()

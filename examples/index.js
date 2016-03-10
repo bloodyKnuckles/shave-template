@@ -1,21 +1,18 @@
 var shaved = require('../')
 var fs = require('fs')
 var main = require('main-loop')
-var vdom = require('vdom-virtualize')
 
-var template = fs.readFileSync('examples/public/template.html', 'utf-8')
+//var template = fs.readFileSync('examples/public/template.html', 'utf-8')
 //var simple = fs.readFileSync('examples/public/simplebutton.html', 'utf-8')
 var outer = fs.readFileSync(__dirname + '/public/mainsimple.html', 'utf-8')
 var section = fs.readFileSync('examples/public/section.html', 'utf-8')
 var inner = fs.readFileSync('examples/public/button.html', 'utf-8')
 
-var templatevd = vdom.fromHTML(template)
-
 var loop = main({ n: 0 }, render, require('virtual-dom'))
 document.querySelector('#content').appendChild(loop.target)
 
 function render (state) {
-//*
+/*
   return shaved(templatevd, {
     'div#message': {class: 'testing132', '_html': 'yup'},
     '#clicks': 'Clicks: ' + state.n,
