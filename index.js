@@ -1,7 +1,7 @@
 var vText = require('virtual-dom/vnode/vtext')
 var vTSel = require('vtree-select')
 var vToHTML = require('vdom-to-html')
-var vdom = require('vdom-virtualize')
+var toVDOM = require('to-virtual-dom')
 
 module.exports = function (templates, contentvars) {
   var vt
@@ -10,24 +10,23 @@ module.exports = function (templates, contentvars) {
     if ( 1 < templates.length ) {
       var start = templates.reverse().shift()
       vt = templates.reduce(function(prev, next) {
-        var ret = vdom.fromHTML(next)
+        var ret = toVDOM(next)
         var tar = vTSel('.template')(ret)
         if ( tar ) {
           tar[0].children = prev.children
         }
         else { console.log('Template selector not found.') }
-        return ret.children[1]
-      }, vdom.fromHTML(start).children[1]) // vdom.fromHTML wraps it in HTML/HEAD/BODY tags
-      vt = vdom.fromHTML(vToHTML(vt)).children[1] // fixes glitch adding children (prev)
-      vt.tagName = 'DIV' // change BODY tag (grabbed in children[1]) to DIV 
+        return ret
+      }, toVDOM(start))
+      vt = toVDOM(vToHTML(vt))
     }
-    else { vt = vdom.fromHTML(templates[0]) }
+    else { vt = toVDOM(templates[0]) }
   }
   else if ( 'object' === typeof templates ) {
-    vt = vdom.fromHTML(vToHTML(templates)) // fixes glitch copying templates
+    vt = toVDOM(vToHTML(templates)) // fixes glitch copying templates
   }
   else {
-    vt = vdom.fromHTML(templates)
+    vt = toVDOM(templates)
   }
   Object.keys(contentvars).forEach(function (sel) {
     var value = contentvars[sel]
@@ -52,13 +51,13 @@ module.exports = function (templates, contentvars) {
           }
           else if (/^_map/.test(prop) && 'object' === typeof valprop && null !== valprop ) {
             Object.keys(valprop).forEach(function (mapkey) {
-              var subtmpl = vdom.fromHTML(vToHTML(vTSel(mapkey)(target)[0])).children[1].children[0] // how else to clone?
+              var subtmpl = toVDOM(vToHTML(vTSel(mapkey)(target)[0])) // how else to clone?
               if ( '_map' === prop ) { target.children = [] }
               valprop[mapkey].forEach(function (cvars) {
                 var mapd
                 if ( 'string' === typeof cvars ) {
                   subtmpl.children = [new vText(cvars)]
-                  mapd = vdom.fromHTML(vToHTML(subtmpl)).children[1].children[0]
+                  mapd = toVDOM(vToHTML(subtmpl))
                 }
                 else if ( 'object' === typeof cvars ) {
                   mapd = vDT(subtmpl, cvars)
@@ -93,4 +92,3 @@ module.exports = function (templates, contentvars) {
   })
   return vt
 }
-module.exports.vdom = vdom

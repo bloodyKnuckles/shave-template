@@ -28,8 +28,8 @@
     "main-loop": "^3.2.0"
   },
   "dependencies": {
+    "to-virtual-dom": "git+https://github.com/bloodyKnuckles/to-virtual-dom.git",
     "vdom-to-html": "^2.2.0",
-    "vdom-virtualize": "^1.0.5",
     "virtual-dom": "^2.1.1",
     "vtree-select": "^2.0.0"
   }
