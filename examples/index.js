@@ -1,7 +1,6 @@
 var shaved = require('../')
 var fs = require('fs')
 var main = require('main-loop')
-var vdom = require('vdom-virtualize')
 
 //var template = fs.readFileSync('examples/public/template.html', 'utf-8')
 //var simple = fs.readFileSync('examples/public/simplebutton.html', 'utf-8')
