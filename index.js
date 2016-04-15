@@ -95,7 +95,7 @@ module.exports = function (templates, contentvars) {
         target.children[0].text = value(target.children[0].text)
       }
     } // end if target
-    else { console.log('Selector not found.') }
+    else { console.log('Selector not found. ', sel) }
   })
   return vt
 }
