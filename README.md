@@ -154,7 +154,7 @@ template.html
   </body>
 </html>
 ```
-(Onclick function is assigned to button onclick handler, not shown. Layout reformatted for clarity.)
+(`onclick` function is assigned to button onclick handler, not shown. Layout reformatted for clarity.)
 
 TIP: The `link` stylesheet element can be `_mapappend`'ed to dynamically add more stylesheets, and
 the script element can be `_mapappend`'ed to add more stylesheets..
