@@ -75,7 +75,7 @@ var outer = fs.readFileSync('public/outer.html', 'utf-8')
 var section = fs.readFileSync('public/section.html', 'utf-8')
 var template = fs.readFileSync('public/template.html', 'utf-8')
 
-shaved([outer, section, template], {
+var vdom = shaved([outer, section, template], {
   '#sectionheader': 'Start Here:',
   'div#message': {class: 'myclass', '_html': 'Clicker ready.'},
   '#clicks': 'Clicks: ' + state.n,
