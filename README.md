@@ -122,7 +122,7 @@ template.html
         <button>button here</button></div>
 ```
 
-outputs:
+outputs a virtual-dom that renders to:
 
 ```
 <!DOCTYPE html>
@@ -156,7 +156,8 @@ outputs:
 ```
 (Onclick function is assigned to button onclick handler, not shown. Layout reformatted for clarity.)
 
-TIP: The `link` stylesheet element can be `mapappend`ed to dynamically add more stylesheets, and the script element can be `mapappend`ed to add more stylesheets..
+TIP: The `link` stylesheet element can be `_mapappend`'ed to dynamically add more stylesheets, and
+the script element can be `_mapappend`'ed to add more stylesheets..
 
 ### license
 
