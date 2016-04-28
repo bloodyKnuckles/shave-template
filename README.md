@@ -157,7 +157,8 @@ template.html
 (`onclick` function is assigned to button onclick handler, not shown. Layout reformatted for clarity.)
 
 TIP: The `link` stylesheet element can be `_mapappend`'ed to dynamically add more stylesheets, and
-the script element can be `_mapappend`'ed to add more stylesheets..
+the script element can be `_mapappend`'ed (or `_mapprepend`'ed if order of scripts is a factor) to
+add more scripts.
 
 ### license
 
