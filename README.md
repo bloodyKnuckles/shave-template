@@ -84,6 +84,80 @@ var vdom = shaved([outer, section, template], {
 })
 ```
 
+outer.html
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>shave-template</title>
+    <link rel="stylesheet" type="text/css" href="public/css/main.css">
+  </head>
+  <body>
+    <div class="template">template</div>
+    <div id="scripts">
+      <script src="public/js/main.js"></script>
+    </div>
+  </body>
+</html>
+```
+
+section.html
+
+```
+      <h2 id="sectionheader">section header</h2>
+      <div class="template"></div>
+```
+
+template.html
+
+```
+        <div><div id="message">message goes here</div>
+        <div id="clicks" style="color: red;">clicks go here</div>
+        <ul id="mapme">
+          <li>a</li>
+          <li>b</li>
+          <li>c</li>
+        </ul>
+        <button>button here</button></div>
+```
+
+outputs:
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>shave-template</title>
+    <link rel="stylesheet" type="text/css" href="public/css/main.css">
+  </head>
+  <body>
+  </head>
+  <body>
+    <div class="template">
+      <h2 id="sectionheader">Start Here:</h2>
+      <div class="template">
+        <div><div id="message" class="myclass">Clicker ready.</div>
+        <div id="clicks" style="color: red;">Clicks: 1</div>
+        <ul id="mapme">
+          <li>one</li>
+          <li>two</li>
+          <li>three</li>
+          <li>four</li>
+        </ul>
+        <button>click here</button></div>
+      </div>
+    </div>
+    <div id="scripts">
+      <script src="public/js/main.js"></script>
+    </div>
+  </body>
+</html>
+```
+(Onclick function is assigned to button onclick handler, not shown. Layout reformatted for clarity.)
+
+TIP: The `link` stylesheet element can be `mapappend`ed to dynamically add more stylesheets, and the script element can be `mapappend`ed to add more stylesheets..
+
 ### license
 
 MIT
