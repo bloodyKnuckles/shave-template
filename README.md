@@ -122,7 +122,7 @@ template.html
         <button>button here</button></div>
 ```
 
-outputs a virtual-dom that renders to:
+...outputs a virtual-dom that renders to:
 
 ```
 <!DOCTYPE html>
