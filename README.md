@@ -68,6 +68,8 @@ index.html
 
 Execute `npm run build` or `browserify -t brfs examples/index.js > examples/public/bundle.js` to compile the example code, then load the index.html file in a browser.
 
+[Online demo.](http://bloodyknuckles.neocities.org/shave/)
+
 ### layering templates and map example
 
 ```
