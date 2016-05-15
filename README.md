@@ -1,6 +1,7 @@
 # shave-template
 
-Content insertion is accomplished by targeting standard HTML tag names and other CSS selectors.
+Content insertion is accomplished by targeting standard HTML tag names and other CSS selectors. 
+Works with [virtual-dom](https://github.com/Matt-Esch/virtual-dom).
 
 This module allows you to develop plain HTML/CSS templates with dummy data in the places dynamic
 data will be inserted. The benefit is that the templates can be developed independently from the
@@ -20,9 +21,9 @@ identifies CSS selectors as key names paired with values, and replaces (or appen
 default content of the elements in the templates that are identified by the corresponding CSS
 selectors with the provided values.
 
-Input templates values may be type string or virtual-dom object.
+Input templates values may be type string or [virtual-dom](https://github.com/Matt-Esch/virtual-dom) object.
 
-This module returns a virtual-dom object useful for DOM-diffing.
+This module returns a [virtual-dom](https://github.com/Matt-Esch/virtual-dom) object useful for DOM-diffing.
 
 ### example
 
