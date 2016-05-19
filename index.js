@@ -3,7 +3,7 @@ var vTSel = require('vtree-select')
 var vToHTML = require('vdom-to-html')
 var toVDOM = require('to-virtual-dom')
 
-module.exports = function (templates, contentvars) {
+module.exports = function vDT (templates, contentvars) {
   var vt
   // if arguments are contained in a single object, pull them out
   if ( 'object' === typeof templates && !Array.isArray(templates)
