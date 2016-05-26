@@ -87,7 +87,7 @@ module.exports = function vDT (templates, contentvars) {
               else if ( valprop.prepend ) { cur = valprop.prepend + cur }
             }
             else { cur = valprop }
-              targetprops[prop] = cur
+            targetprops[prop] = cur
           }
         })
       }
