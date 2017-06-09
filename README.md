@@ -1,7 +1,13 @@
 # shave-template
+A no curly-brackets `{}` template module for populating HTML templates with dynamic data and building
+dynamic lists and tables.
+
+(Intended for client-side use. For a similar server-side library see
+[templateking](http://www.npmjs.com/package/templateking).)
 
 Content insertion is accomplished by targeting standard HTML tag names and other CSS selectors. 
-Works with [virtual-dom](https://github.com/Matt-Esch/virtual-dom).
+Works with [virtual-dom](https://github.com/Matt-Esch/virtual-dom). (For a similar non-virtual-dom 
+library see [curly-free-template](https://www.npmjs.com/package/curly-free-template).)
 
 This module allows you to develop plain HTML/CSS templates with dummy data in the places dynamic
 data will be inserted. The benefit is that the templates can be developed independently from the
